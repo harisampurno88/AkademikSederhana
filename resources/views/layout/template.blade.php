@@ -18,7 +18,7 @@
             <a href="/dosen" class="d-flex align-items-center text-white text-decoration-none">
                 <span class="fs-4">Dosen</span>
             </a>
-            <a href="/" class="d-flex align-items-center text-white text-decoration-none">
+            <a href="/matakuliah" class="d-flex align-items-center text-white text-decoration-none">
                 <span class="fs-4">Mata Kuliah</span>
             </a>
             <a href="/" class="d-flex align-items-center text-white text-decoration-none">

@@ -55,8 +55,8 @@ class dosenController extends Controller
                 'id_dosen.unique' => 'ID dosen sudah terdaftar',
                 'nama_dosen.required' => 'Nama harus diisi',
                 'nama_dosen.string' => 'Nama harus berupa huruf',
-                'nip.required' => 'NIM harus diisi',
-                'nip.string' => 'NIM harus berupa huruf',
+                'nip.required' => 'NIP harus diisi',
+                'nip.string' => 'NIP harus berupa huruf',
             ]
         );
         $data = [
