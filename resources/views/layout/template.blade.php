@@ -12,10 +12,10 @@
 <body class="bg-light">
     <nav class="navbar navbar-expand-md navbar-light bg-danger shadow-sm">
         <div class="container d-flex flex-column flex-md-row align-items-center pb-2 mb-2 gap-3">
-            <a href="/" class="d-flex align-items-center text-white text-decoration-none">
+            <a href="/mahasiswa" class="d-flex align-items-center text-white text-decoration-none">
                 <span class="fs-4">Mahasiswa</span>
             </a>
-            <a href="/" class="d-flex align-items-center text-white text-decoration-none">
+            <a href="/dosen" class="d-flex align-items-center text-white text-decoration-none">
                 <span class="fs-4">Dosen</span>
             </a>
             <a href="/" class="d-flex align-items-center text-white text-decoration-none">
