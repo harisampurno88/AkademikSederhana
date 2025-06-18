@@ -18,4 +18,14 @@ class nilai extends Model
         'nilai_uts',
         'nilai_uas'
     ];
+
+    public function mahasiswa()
+    {
+        return $this->belongsTo(mahasiswa::class, 'id_mahasiswa' , 'id_mahasiswa');
+    }
+
+    public function matakuliah()
+    {
+        return $this->belongsTo(matakuliah::class, 'id_mk' , 'id_mk');
+    }
 }

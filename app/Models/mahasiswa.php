@@ -16,4 +16,9 @@ class mahasiswa extends Model
         'nim',
         'jurusan',
     ];
+
+    public function nilai()
+    {
+        return $this->hasMany(nilai::class, 'id_mahasiswa', 'id_mahasiswa');
+    }
 }

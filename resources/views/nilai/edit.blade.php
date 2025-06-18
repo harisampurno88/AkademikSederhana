@@ -17,17 +17,35 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="id_mahasiswa" class="col-sm-2 col-form-label">ID Mahasiswa</label>
+                        <label for="id_mahasiswa" class="col-sm-2 col-form-label">Id Mahasiswa</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name='id_mahasiswa' value="{{ $data->id_mahasiswa }}"
-                                id="id_mahasiswa">
+                            <select name="id_mahasiswa" id="id_mahasiswa" class="form-select">
+                                <option value="">-- Pilih Id Mahasiswa --</option>
+                                @forelse ($mahasiswaList as $mahasiswa)
+                                    <option value="{{ $mahasiswa->id_mahasiswa }}"
+                                        {{ old('id_mahasiswa', $data->id_mahasiswa ?? '') == $mahasiswa->id_mahasiswa ? 'selected' : '' }}>
+                                        {{ $mahasiswa->id_mahasiswa }}
+                                    </option>
+                                @empty
+                                    <option disabled>Data mahasiswa belum tersedia</option>
+                                @endforelse
+                            </select>
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="id_mk" class="col-sm-2 col-form-label">ID MK</label>
+                        <label for="id_mk" class="col-sm-2 col-form-label">Id MK</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name='id_mk' value="{{ $data->id_mk }}"
-                                id="id_mk">
+                            <select name="id_mk" id="id_mk" class="form-select">
+                                <option value="">-- Pilih Id MK --</option>
+                                @forelse ($mkList as $mk)
+                                    <option value="{{ $mk->id_mk }}"
+                                        {{ old('id_mk', $data->id_mk ?? '') == $mk->id_mk ? 'selected' : '' }}>
+                                        {{ $mk->id_mk }}
+                                    </option>
+                                @empty
+                                    <option disabled>Data mk belum tersedia</option>
+                                @endforelse
+                            </select>
                         </div>
                     </div>
                     <div class="mb-3 row">

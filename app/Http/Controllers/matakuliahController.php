@@ -60,7 +60,7 @@ class matakuliahController extends Controller
                 'nama_mk.required' => 'Nama harus diisi',
                 'sks.required' => 'NIM harus diisi',
                 'sks.string' => 'NIM harus berupa huruf',
-                'id_dosen.required' => 'ID Dosen harus diisi',
+                'id_dosen.required' => 'ID matakuliah harus diisi',
             ]
         );
         $data = [
@@ -97,7 +97,7 @@ class matakuliahController extends Controller
      */
     public function update(Request $request, string $id)
     {
-         $request->validate(
+        $request->validate(
             [
                 'nama_mk' => 'required|string|max:100',
                 'sks' => 'required|string|max:100',
@@ -107,7 +107,7 @@ class matakuliahController extends Controller
                 'nama_mk.required' => 'Nama matakuliah harus diisi',
                 'sks.required' => 'SKS harus diisi',
                 'sks.string' => 'SKS harus berupa huruf',
-                'id_dosen.required' => 'ID Dosen harus diisi',
+                'id_dosen.required' => 'ID matakuliah harus diisi',
             ]
         );
         $data = [
@@ -124,6 +124,12 @@ class matakuliahController extends Controller
      */
     public function destroy(string $id)
     {
+        $matakuliah = matakuliah::where('id_mk', $id)->firstOrFail();
+
+        if ($matakuliah->nilai()->exists()) {
+            return redirect()->to('matakuliah')->with('error', 'Tidak bisa menghapus matakuliah karena masih memiliki Nilai');
+        }
+
         matakuliah::where('id_mk', $id)->delete();
         return redirect()->to('matakuliah')->with('success', 'Data matakuliah berhasil dihapus');
     }

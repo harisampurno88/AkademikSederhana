@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\mahasiswa;
+use App\Models\matakuliah;
 use App\Models\nilai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -34,7 +36,9 @@ class nilaiController extends Controller
      */
     public function create()
     {
-        return view('nilai.create');
+        $mkList = matakuliah::all();
+        $mahasiswaList = mahasiswa::all();
+        return view('nilai.create', compact('mkList', 'mahasiswaList'));
     }
 
     /**
@@ -94,8 +98,11 @@ class nilaiController extends Controller
      */
     public function edit(string $id)
     {
+        $mkList = matakuliah::all();
+        $mahasiswaList = mahasiswa::all();
         $data = nilai::where('id_nilai', $id)->first();
-        return view('nilai.edit')->with('data', $data);
+
+        return view('nilai.edit', compact('mkList', 'mahasiswaList' ,'data'));
     }
 
     /**

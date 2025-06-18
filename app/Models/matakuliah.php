@@ -21,4 +21,9 @@ class matakuliah extends Model
         return $this->belongsTo(dosen::class, 'id_dosen', 'id_dosen');
     }
 
+    public function nilai()
+    {
+        return $this->hasMany(nilai::class, 'id_mk', 'id_mk');
+    }
+
 }

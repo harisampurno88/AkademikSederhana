@@ -123,7 +123,13 @@ class mahasiswaController extends Controller
      */
     public function destroy(string $id)
     {
+         $mahasiswa = mahasiswa::where('id_mahasiswa', $id)->firstOrFail();
+
+        if ($mahasiswa->nilai()->exists()) {
+            return redirect()->to('mahasiswa')->with('error', 'Tidak bisa menghapus mahasiswa karena masih memiliki nilai');
+        }
+
         mahasiswa::where('id_mahasiswa', $id)->delete();
-        return redirect()->to('mahasiswa')->with('success', 'Data Mahasiswa berhasil dihapus');
+        return redirect()->to('mahasiswa')->with('success', 'Data mahasiswa berhasil dihapus');
     }
 }
