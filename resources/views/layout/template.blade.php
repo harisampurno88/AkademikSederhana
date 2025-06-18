@@ -21,7 +21,7 @@
             <a href="/matakuliah" class="d-flex align-items-center text-white text-decoration-none">
                 <span class="fs-4">Mata Kuliah</span>
             </a>
-            <a href="/" class="d-flex align-items-center text-white text-decoration-none">
+            <a href="/nilai" class="d-flex align-items-center text-white text-decoration-none">
                 <span class="fs-4">Nilai</span>
             </a>
         </div>
