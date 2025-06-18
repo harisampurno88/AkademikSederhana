@@ -16,4 +16,9 @@ class matakuliah extends Model
         'id_dosen'
     ];
 
+    public function dosen()
+    {
+        return $this->belongsTo(dosen::class, 'id_dosen', 'id_dosen');
+    }
+
 }

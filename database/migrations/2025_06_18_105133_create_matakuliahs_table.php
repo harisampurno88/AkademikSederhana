@@ -16,6 +16,11 @@ return new class extends Migration
             $table->string('nama_mk', 100);
             $table->string('sks', 10);
             $table->integer('id_dosen');
+            $table->foreign('id_dosen')
+                ->references('id_dosen')
+                ->on('dosen')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

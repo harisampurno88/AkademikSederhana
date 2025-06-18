@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\dosen;
 use App\Models\matakuliah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -32,7 +33,8 @@ class matakuliahController extends Controller
      */
     public function create()
     {
-        return view('matakuliah.create');
+        $dosenList = dosen::all();
+        return view('matakuliah.create', compact('dosenList'));
     }
 
     /**
@@ -84,8 +86,10 @@ class matakuliahController extends Controller
      */
     public function edit(string $id)
     {
+        $dosenList = dosen::all();
         $data = matakuliah::where('id_mk', $id)->first();
-        return view('matakuliah.edit')->with('data', $data);
+
+        return view('matakuliah.edit', compact('dosenList', 'data'));
     }
 
     /**

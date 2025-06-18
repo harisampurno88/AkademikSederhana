@@ -115,6 +115,12 @@ class dosenController extends Controller
      */
     public function destroy(string $id)
     {
+        $dosen = dosen::where('id_dosen', $id)->firstOrFail();
+
+        if ($dosen->matakuliah()->exists()) {
+            return redirect()->to('dosen')->with('error', 'Tidak bisa menghapus dosen karena masih memiliki Mata Kuliah');
+        }
+
         dosen::where('id_dosen', $id)->delete();
         return redirect()->to('dosen')->with('success', 'Data dosen berhasil dihapus');
     }

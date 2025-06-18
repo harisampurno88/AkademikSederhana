@@ -15,4 +15,9 @@ class dosen extends Model
         'nama_dosen',
         'nip',
     ];
+
+    public function matakuliah()
+    {
+        return $this->hasMany(matakuliah::class, 'id_dosen', 'id_dosen');
+    }
 }

@@ -31,10 +31,19 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="id_dosen" class="col-sm-2 col-form-label">ID Dosen</label>
+                        <label for="id_dosen" class="col-sm-2 col-form-label">Id Dosen</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name='id_dosen' value="{{ $data->id_dosen }}"
-                                id="id_dosen">
+                            <select name="id_dosen" id="id_dosen" class="form-select">
+                                <option value="">-- Pilih Id Dosen --</option>
+                                @forelse ($dosenList as $dosen)
+                                    <option value="{{ $dosen->id_dosen }}"
+                                        {{ old('id_dosen', $data->id_dosen ?? '') == $dosen->id_dosen ? 'selected' : '' }}>
+                                        {{ $dosen->id_dosen }}
+                                    </option>
+                                @empty
+                                    <option disabled>Data dosen belum tersedia</option>
+                                @endforelse
+                            </select>
                         </div>
                     </div>
                     <div class="mb-3 row">
